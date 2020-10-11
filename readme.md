@@ -118,3 +118,6 @@ Building configuration...
 [OK]
 R1#
 
+
+
+## Step 3: Configure basic settings for each switch.
