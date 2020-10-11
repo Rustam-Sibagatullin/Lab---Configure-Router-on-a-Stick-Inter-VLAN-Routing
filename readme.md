@@ -167,7 +167,6 @@ k.	Copy the running configuration to the startup configuration.
 
 
 log         
-------------|-------------
 Switch-1    |Switch-2
 ------------|-------------
 Switch>enable |
