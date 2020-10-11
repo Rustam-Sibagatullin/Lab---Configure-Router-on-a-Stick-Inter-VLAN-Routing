@@ -205,4 +205,114 @@ S1# |	[OK]
 ![картинка2](https://github.com/Rustam-Sibagatullin/Lab---Configure-Router-on-a-Stick-Inter-VLAN-Routing/blob/main/IP_PCs.JPG "PC hosts")
 
 
+# Part 2: Create VLANs and Assign Switch Ports
+
+## Step 1: Create VLANs on both switches
+
+## Step 2: Assign VLANs to the correct switch interfaces.
+
+S1>enable   
+Password:   
+S1#  
+Enter configuration commands, one per line.  End with CNTL/Z.  
+S1(config)#vlan 3  
+S1(config-vlan)#name Management  
+S1(config-vlan)#vlan 4  
+S1(config-vlan)#name Operations  
+S1(config-vlan)#vlan 7  
+S1(config-vlan)#name ParkingLot  
+S1(config-vlan)#vlan 8  
+S1(config-vlan)#name Native  
+S1(config-vlan)#interface vlan 3  
+S1(config-if)#  
+%LINK-5-CHANGED: Interface Vlan3, changed state to up  
+ip address 192.168.3.11 255.255.255.0  
+S1(config-if)#no shutdown
+S1(config-if)#exit
+S1(config)#ip default-gateway 192.168.3.1  
+S1(config)#interface range f0/2 - 4 , f0/7 - 24 , g0/1 - 2  
+S1(config-if-range)#switchport mode access  
+S1(config-if-range)#switchport access vlan 7  
+S1(config-if-range)#shutdown  
+
+%LINK-5-CHANGED: Interface FastEthernet0/2, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/4, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/7, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/8, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/9, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/10, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/11, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/12, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/13, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/14, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/15, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/16, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/17, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/18, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/19, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/20, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/21, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/22, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/23, changed state to administratively down
+
+%LINK-5-CHANGED: Interface FastEthernet0/24, changed state to administratively down
+
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
+
+%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to administratively down  
+S1(config-if-range)#interface f0/6  
+S1(config-if)#switchport mode access  
+S1(config-if)#switchport access vlan 3  
+S1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan3, changed state to up  
+
+S1(config-if)#show vlan brief  
+                ^
+% Invalid input detected at '^' marker.  
+	
+S1(config-if)#exit  
+S1(config)#exit  
+S1#  
+%SYS-5-CONFIG_I: Configured from console by console  
+S1#show vlan brief  
+
+VLAN Name                            |  Status   | Ports
+---- --------------------------------| --------- |-------------------------------
+1    default                         |active     | Fa0/1, Fa0/5
+3    Management                      | active    | Fa0/6
+4    Operations                      | active    |
+7    ParkingLot                      | active    | Fa0/2, Fa0/3, Fa0/4, Fa0/7  
+                                     |           | Fa0/8, Fa0/9, Fa0/10, Fa0/11  
+                                     |           | Fa0/12, Fa0/13, Fa0/14, Fa0/15  
+                                     |           | Fa0/16, Fa0/17, Fa0/18, Fa0/19  
+                                     |           | Fa0/20, Fa0/21, Fa0/22, Fa0/23  
+                                     |           | Fa0/24, Gig0/1, Gig0/2
+8    Native                          | active    |
+1002 fddi-default                    | active    |
+1003 token-ring-default              | active    |
+1004 fddinet-default                 | active    |
+1005 trnet-default                   | active    |
+
+
+
 
