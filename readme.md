@@ -53,21 +53,21 @@ f.	Assign cisco as the console password and enable login.
 **R1(config-line)#exit**  
 
 
-g.	Assign cisco as the VTY password and enable login.
-**R1(config)#line vty 0 15**
-**R1(config-line)#password cisco**
-**R1(config-line)#exit**
+g.	Assign cisco as the VTY password and enable login.  
+**R1(config)#line vty 0 15**  
+**R1(config-line)#password cisco**  
+**R1(config-line)#exit**  
 
-h.	Encrypt the plaintext passwords.
+h.	Encrypt the plaintext passwords.  
 **R1(config)#service password-encryption**
 
-i.	Create a banner that warns anyone accessing the device that unauthorized access is prohibited.
+i.	Create a banner that warns anyone accessing the device that unauthorized access is prohibited.  
 **banner motd $ Authorized Users Only! $**
 
-j.	Save the running configuration to the startup configuration file.
+j.	Save the running configuration to the startup configuration file.  
 **R1#copy running-config startup-config**
 
-k.	Set the clock on the router.
+k.	Set the clock on the router.  
 **R1#clock set 21:25:00 7 October 2020**
 
 
