@@ -607,3 +607,27 @@ Approximate round trip times in milli-seconds:
 
 ![картинка3](https://github.com/Rustam-Sibagatullin/Lab---Configure-Router-on-a-Stick-Inter-VLAN-Routing/blob/main/Ping_from_PC-A.JPG "Ping_from_PC-A")
 
+
+# Step 2: Complete the following test from PC-B.
+
+From the command prompt on PC-B, issue the tracert command to the address of PC-A.  
+
+Packet Tracer PC Command Line 1.0  
+C:\>tracert 192.168.3.3  
+
+Tracing route to 192.168.3.3 over a maximum of 30 hops:   
+
+  1   1 ms      0 ms      0 ms      192.168.4.1  
+  2   1 ms      0 ms      0 ms      192.168.3.3  
+
+Trace complete.  
+
+![картинка4](https://github.com/Rustam-Sibagatullin/Lab---Configure-Router-on-a-Stick-Inter-VLAN-Routing/blob/main/tracert_from_PC-B_to_PC-A.JPG "tracert_from_PC-B_to_PC-A")
+
+
+
+
+Question:
+What intermediate IP addresses are shown in the results?
+
+
