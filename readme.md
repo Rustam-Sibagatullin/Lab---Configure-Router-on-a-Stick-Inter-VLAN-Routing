@@ -127,7 +127,7 @@ a.	Console into the switch and enable privileged EXEC mode.
 **Switch>enable**  
 
 b.	Enter configuration mode.  
-**Switch#configure terminal **  
+**Switch#configure terminal**  
 
 c.	Assign a device name to the switch.  
 **Switch(config)#hostname S1**
@@ -164,5 +164,13 @@ Note: Use the question mark (?) to help with the correct sequence of parameters 
 k.	Copy the running configuration to the startup configuration.  
 **S1#copy running-config startup-config**  
 **S2#copy running-config startup-config**
+
+
+log         |
+------------|-------------
+Switch-1    |Switch-2
+--------------------------
+
+
 
 
