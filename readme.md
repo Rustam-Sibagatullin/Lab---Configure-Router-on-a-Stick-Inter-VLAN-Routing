@@ -202,7 +202,7 @@ S1# |	[OK]
 
 ## Step 4: Configure PC hosts.
 
-
+![картинка2](https://github.com/Rustam-Sibagatullin/Lab---Configure-Router-on-a-Stick-Inter-VLAN-Routing/blob/main/IP PCs.JPG "PC hosts")
 
 
 
