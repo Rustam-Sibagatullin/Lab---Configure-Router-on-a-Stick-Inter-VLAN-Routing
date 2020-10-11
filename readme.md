@@ -355,3 +355,227 @@ VLAN Name                             |Status   | Ports
 1004 fddinet-default                  |active   | 
 1005 trnet-default                    |active   | 
 S2#
+
+
+
+
+
+
+
+
+S1>en
+S1>enable 
+Password: 
+S1#con
+S1#conf
+S1#configure t
+S1#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#interface f0/1
+S1(config-if)#switchport mode trunk
+
+S1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+S1(config-if)#switchport trunk native vlan 8
+S1(config-if)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+%SPANTREE-2-RECV_PVID_ERR: Received BPDU with inconsistent peer vlan id 1 on FastEthernet0/1 VLAN8.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/1 on VLAN0008. Inconsistent local vlan.
+
+
+S1(config-if)#switchport trunk allowed vlan 3,4,8
+S1(config-if)#%SPANTREE-2-RECV_PVID_ERR: Received BPDU with inconsistent peer vlan id 1 on FastEthernet0/1 VLAN8.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/1 on VLAN0008. Inconsistent local vlan.
+
+
+S1(config-if)#exit
+S1(config)#show interfaces trunk
+            ^
+% Invalid input detected at '^' marker.
+	
+S1(config)#exit
+S1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+S1#show interfaces trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Fa0/1       on           802.1q         trunking      8
+
+Port        Vlans allowed on trunk
+Fa0/1       3-4,8
+
+Port        Vlans allowed and active in management domain
+Fa0/1       3,4,8
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Fa0/1       none
+
+S1#
+S1#
+S1#show interfaces trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Fa0/1       on           802.1q         trunking      8
+
+Port        Vlans allowed on trunk
+Fa0/1       3-4,8
+
+Port        Vlans allowed and active in management domain
+Fa0/1       3,4,8
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Fa0/1       3,4
+
+S1#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+
+S1#con
+S1#conf
+S1#configure t
+S1#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S1(config)#
+S1(config)#interface f0/5
+S1(config-if)#switchport mode trunk
+S1(config-if)#switchport trunk native vlan 8
+S1(config-if)#switchport trunk allowed vlan 3,4,8
+S1(config-if)#exit
+S1(config)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (8), with S2 FastEthernet0/1 (1).
+
+%LINK-5-CHANGED: Interface FastEthernet0/5, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/5, changed state to up
+
+
+
+
+
+
+
+S2>en
+S2>enable 
+Password: 
+S2#
+S2#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (1), with S1 FastEthernet0/1 (8).
+
+S2#con
+S2#connf
+S2#conf
+S2#configure t
+S2#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+S2(config)#
+S2(config)#interface f0/1
+S2(config-if)#switchport mode trunk
+S2(config-if)#switchport trunk native vlan 8
+S2(config-if)#%SPANTREE-2-UNBLOCK_CONSIST_PORT: Unblocking FastEthernet0/1 on VLAN0008. Port consistency restored.
+
+%SPANTREE-2-UNBLOCK_CONSIST_PORT: Unblocking FastEthernet0/1 on VLAN0001. Port consistency restored.
+
+switchport trunk allowed vlan 3,4,8
+S2(config-if)#
+S2(config-if)#switchport trunk allowed vlan 3,4,8
+S2(config-if)#
+S2(config-if)#exit
+S2(config)#exit
+S2#
+%SYS-5-CONFIG_I: Configured from console by console
+
+S2# show interfaces trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Fa0/1       on           802.1q         trunking      8
+
+Port        Vlans allowed on trunk
+Fa0/1       3-4,8
+
+Port        Vlans allowed and active in management domain
+Fa0/1       3,4
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Fa0/1       none
+
+S2#
+
+
+
+
+
+
+R1>en
+R1>enable 
+Password: 
+R1#
+R1#conf
+R1#configure t
+R1#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#interface g0/0/1
+R1(config-if)#no shutdown
+
+R1(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to up
+
+R1(config-if)#exit
+R1(config)#interface g0/0/1.3
+R1(config-subif)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0/1.3, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1.3, changed state to up
+description Management_Network
+R1(config-subif)#encapsulation dot1q 3
+R1(config-subif)#ip address 192.168.3.1 255.255.255.0
+R1(config-subif)#interface g0/0/1.4
+R1(config-subif)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0/1.4, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1.4, changed state to up
+description Operations_Network
+R1(config-subif)#encapsulation dot1q 4
+R1(config-subif)#ip address 192.168.4.1 255.255.255.0
+R1(config-subif)#interface g0/0/1.8
+R1(config-subif)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0/1.8, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1.8, changed state to up
+
+R1(config-subif)#description Native_VLAN
+R1(config-subif)#encapsulation dot1q 8 native
+R1(config-subif)#exit
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+R1#show ip interface brief  
+Interface              IP-Address      OK? Method Status                Protocol   
+GigabitEthernet0/0/0   unassigned      YES unset  administratively down down   
+GigabitEthernet0/0/1   unassigned      YES unset  up                    up   
+GigabitEthernet0/0/1.3 192.168.3.1     YES manual up                    up   
+GigabitEthernet0/0/1.4 192.168.4.1     YES manual up                    up   
+GigabitEthernet0/0/1.8 unassigned      YES unset  up                    up   
+Vlan1                  unassigned      YES unset  administratively down down  
+R1#  
+R1#show ip interface brief  
+Interface              IP-Address      OK? Method Status                Protocol   
+GigabitEthernet0/0/0   unassigned      YES unset  administratively down down   
+GigabitEthernet0/0/1   unassigned      YES unset  up                    up   
+GigabitEthernet0/0/1.3 192.168.3.1     YES manual up                    up   
+GigabitEthernet0/0/1.4 192.168.4.1     YES manual up                    up   
+GigabitEthernet0/0/1.8 unassigned      YES unset  up                    up   
+Vlan1                  unassigned      YES unset  administratively down down  
