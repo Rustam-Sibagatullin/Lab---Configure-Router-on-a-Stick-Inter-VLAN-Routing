@@ -166,9 +166,10 @@ k.	Copy the running configuration to the startup configuration.
 **S2#copy running-config startup-config**
 
 
-log         |
+log         
 ------------|-------------
 Switch-1    |Switch-2
+------------|-------------
 Switch>enable |
 Switch#configure terminal  |
 Enter configuration commands, one per line.  End with CNTL/Z. |
