@@ -628,6 +628,9 @@ Trace complete.
 
 
 Question:
-What intermediate IP addresses are shown in the results?
+What intermediate IP addresses are shown in the results? 
+
+Answer: intermediate IP is 192.168.4.1. It relates to G0/0/1.4 according IP plan
+
 
 
