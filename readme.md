@@ -200,6 +200,9 @@ S1# |	[OK]
 
 
 
+## Step 4: Configure PC hosts.
+
+
 
 
 
