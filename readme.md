@@ -31,32 +31,32 @@ VLAN|	Name	     |Interface Assigned
 
 
 ## Step-2: Configure basic settings for the router
-a.	Console into the router and enable privileged EXEC mode.
+a.	Console into the router and enable privileged EXEC mode.  
 **Router>enable**
 
-b.	Enter configuration mode.
+b.	Enter configuration mode.  
 **configure ter**
 
-c.	Assign a device name to the router.
+c.	Assign a device name to the router.  
 **Router(config)#hostname R1**
 
-d.	Disable DNS lookup to prevent the router from attempting to translate incorrectly entered commands as though they were host names.
+d.	Disable DNS lookup to prevent the router from attempting to translate incorrectly entered commands as though they were host names.  
 **R1(config)#no ip domain-lookupno ip domain-lookup**
 
-e.	Assign class as the privileged EXEC encrypted password.
+e.	Assign class as the privileged EXEC encrypted password.  
 **enable secret class**
 
-f.	Assign cisco as the console password and enable login.
-**R1(config)#line console 0
-R1(config-line)#password cisco
-R1(config-line)#login
-R1(config-line)#exit**
+f.	Assign cisco as the console password and enable login.  
+**R1(config)#line console 0**  
+**R1(config-line)#password cisco**  
+**R1(config-line)#login**  
+**R1(config-line)#exit**  
 
 
 g.	Assign cisco as the VTY password and enable login.
-**R1(config)#line vty 0 15
-R1(config-line)#password cisco
-R1(config-line)#exit**
+**R1(config)#line vty 0 15**
+**R1(config-line)#password cisco**
+**R1(config-line)#exit**
 
 h.	Encrypt the plaintext passwords.
 **R1(config)#service password-encryption**
