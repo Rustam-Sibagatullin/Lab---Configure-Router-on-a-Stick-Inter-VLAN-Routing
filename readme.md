@@ -311,3 +311,52 @@ VLAN Name                            |  Status   | Ports
 
 
 
+
+
+S2#configure terminal   
+Enter configuration commands, one per line.  End with CNTL/Z.  
+S2(config)#vlan 3  
+S2(config-vlan)#name Management  
+S2(config-vlan)#vlan 4  
+S2(config-vlan)#name Operations  
+S2(config-vlan)#vlan 7   
+S2(config-vlan)#name ParkingLot  
+S2(config-vlan)#vlan 8  
+S2(config-vlan)#name Native  
+S2(config-vlan)#interface vlan 3   
+S2(config-if)#  
+%LINK-5-CHANGED: Interface Vlan3, changed state to up  
+ip address 192.168.3.12 255.255.255.0  
+S2(config-if)#no shutdown  
+S2(config-if)#exit  
+S2(config)#ip default-gateway 192.168.3.1  
+S2(config)#interface range f0/2 - 17, f0/19 - 24 , g0/1 - 2  
+S2(config-if-range)#switchport mode access  
+S2(config-if-range)#switchport access vlan 7  
+S2(config-if-range)#shutdown  
+S2(config-if-range)#interface f0/18  
+S2(config-if)#switchport mode access  
+S2(config-if)#switchport access vlan 4  
+S2(config-if)#exit  
+S2(config)#exit  
+S2#  
+%SYS-5-CONFIG_I: Configured from console by console  
+
+S2#show vlan brief
+
+VLAN Name                             |Status   | Ports
+---- ---------------------------------|---------|-------------------------------
+1    default                          |active   | Fa0/1
+3    Management                       |active   | 
+4    Operations                       |active   | Fa0/18
+7    Native                           |active   | Fa0/2, Fa0/3, Fa0/4, Fa0/5 <br>
+                                                Fa0/6, Fa0/7, Fa0/8, Fa0/9 <br>
+                                                Fa0/10, Fa0/11, Fa0/12, Fa0/13 <br>
+                                                Fa0/14, Fa0/15, Fa0/16, Fa0/17 <br>
+                                                Fa0/19, Fa0/20, Fa0/21, Fa0/22 <br>
+                                                Fa0/23, Fa0/24, Gig0/1, Gig0/2
+1002 fddi-default                     |active   | 
+1003 token-ring-default               |active   | 
+1004 fddinet-default                  |active   | 
+1005 trnet-default                    |active   | 
+S2#
