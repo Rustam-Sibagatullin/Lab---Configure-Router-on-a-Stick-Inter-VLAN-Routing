@@ -349,12 +349,7 @@ VLAN Name                             |Status   | Ports
 1    default                          |active   | Fa0/1
 3    Management                       |active   | 
 4    Operations                       |active   | Fa0/18
-7    Native                           |active   | Fa0/2, Fa0/3, Fa0/4, Fa0/5 <br>
-                                                Fa0/6, Fa0/7, Fa0/8, Fa0/9 <br>
-                                                Fa0/10, Fa0/11, Fa0/12, Fa0/13 <br>
-                                                Fa0/14, Fa0/15, Fa0/16, Fa0/17 <br>
-                                                Fa0/19, Fa0/20, Fa0/21, Fa0/22 <br>
-                                                Fa0/23, Fa0/24, Gig0/1, Gig0/2
+7    Native                           |active   | Fa0/2, Fa0/3, Fa0/4, Fa0/5 <br>Fa0/6, Fa0/7, Fa0/8, Fa0/9 <br>Fa0/10, Fa0/11, Fa0/12, Fa0/13 <br>Fa0/14, Fa0/15, Fa0/16, Fa0/17 <br>                                             Fa0/19, Fa0/20, Fa0/21, Fa0/22 <br> Fa0/23, Fa0/24, Gig0/1, Gig0/2
 1002 fddi-default                     |active   | 
 1003 token-ring-default               |active   | 
 1004 fddinet-default                  |active   | 
