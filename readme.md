@@ -549,3 +549,61 @@ GigabitEthernet0/0/1.3 192.168.3.1     YES manual up                    up
 GigabitEthernet0/0/1.4 192.168.4.1     YES manual up                    up   
 GigabitEthernet0/0/1.8 unassigned      YES unset  up                    up   
 Vlan1                  unassigned      YES unset  administratively down down  
+
+
+
+
+## Part 5: Verify Inter-VLAN Routing is Working
+
+
+# Step 1: Complete the following tests from PC-A. All should be successful
+
+a.	Ping from PC-A to its default gateway.  
+C:\>ping 192.168.3.1  
+
+Pinging 192.168.3.1 with 32 bytes of data:  
+
+Reply from 192.168.3.1: bytes=32 time=1ms TTL=255  
+Reply from 192.168.3.1: bytes=32 time=1ms TTL=255  
+Reply from 192.168.3.1: bytes=32 time<1ms TTL=255  
+Reply from 192.168.3.1: bytes=32 time<1ms TTL=255  
+
+Ping statistics for 192.168.3.1:  
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),  
+Approximate round trip times in milli-seconds:  
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms  
+
+
+b.	Ping from PC-A to PC-B    
+C:\>ping 192.168.3.1  
+
+Pinging 192.168.3.1 with 32 bytes of data:  
+
+Reply from 192.168.3.1: bytes=32 time=1ms TTL=255  
+Reply from 192.168.3.1: bytes=32 time=1ms TTL=255  
+Reply from 192.168.3.1: bytes=32 time<1ms TTL=255  
+Reply from 192.168.3.1: bytes=32 time<1ms TTL=255  
+
+Ping statistics for 192.168.3.1:  
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),  
+Approximate round trip times in milli-seconds:  
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms  
+    
+c.	Ping from PC-A to S2  
+
+C:\>ping 192.168.3.12  
+
+Pinging 192.168.3.12 with 32 bytes of data:  
+
+Request timed out.  
+Reply from 192.168.3.12: bytes=32 time<1ms TTL=255  
+Reply from 192.168.3.12: bytes=32 time<1ms TTL=255  
+Reply from 192.168.3.12: bytes=32 time<1ms TTL=255  
+
+Ping statistics for 192.168.3.12:  
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),  
+Approximate round trip times in milli-seconds:  
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms  
+
+![картинка3](https://github.com/Rustam-Sibagatullin/Lab---Configure-Router-on-a-Stick-Inter-VLAN-Routing/blob/main/Ping_from_PC-A.JPG "Ping_from_PC-A")
+
