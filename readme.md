@@ -169,34 +169,35 @@ k.	Copy the running configuration to the startup configuration.
 log         
 Switch-1    |Switch-2
 ------------|-------------
-Switch>enable |
-Switch#configure terminal  |
-Enter configuration commands, one per line.  End with CNTL/Z. |
-Switch(config)#hostname S1 |
-S1(config)#no ip domain-lookup  |
-S1(config)#enable  secret class |
-S1(config)#line |
-S1(config)#line conslo |
-S1(config)#line console |
-S1(config)#line console 0 |
-S1(config-line)#password cisco |
-S1(config-line)#login |
-S1(config-line)#exit |
-S1(config)#line vty 0 15 |
-S1(config-line)#password cisco |
-S1(config-line)#login |
-S1(config-line)#exit |
-S1(config)#ser |
-S1(config)#service pa |
-S1(config)#service password-encryption  |
-S1(config)#banner motd $ Authorized Users Only! $ |
-S1(config)#exit |
-S1#clock set 13:11:00 11 October 2020 |
-S1#copy running-config startup-config  |
-Destination filename [startup-config]?  |
-Building configuration... |
-[OK] |
-S1# |
+Switch>enable |	Switch>enable
+Switch#configure terminal  |	Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z. |	Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)#hostname S1 |	Switch(config)#hostname S2
+S1(config)#no ip domain-lookup  |	S2(config)#no ip domain-lookup
+S1(config)#enable  secret class |	S2(config)#enable secret class
+S1(config)#line |	S2(config)#line console 0
+S1(config)#line conslo |	S2(config-line)#password cisco
+S1(config)#line console |	S2(config-line)#login
+S1(config)#line console 0 |	S2(config-line)#exit
+S1(config-line)#password cisco |	S2(config)#line vty 0 15
+S1(config-line)#login |	S2(config-line)#password cisco
+S1(config-line)#exit |	S2(config-line)#login
+S1(config)#line vty 0 15 |	S2(config-line)#exit
+S1(config-line)#password cisco |	S2(config)#service password-encryption
+S1(config-line)#login |	S2(config)#banner motd $ Authorized Users Only! $
+S1(config-line)#exit |	S2(config)#exit
+S1(config)#ser |	%SYS-5-CONFIG_I: Configured from console by console
+S1(config)#service pa |	S2#clo
+S1(config)#service password-encryption  |	S2#clock set
+S1(config)#banner motd $ Authorized Users Only! $ |	S2#clock set 13:33:00 11 October 2020
+S1(config)#exit |	S2#cop
+S1#clock set 13:11:00 11 October 2020 |	S2#copy ru
+S1#copy running-config startup-config  |	S2#copy running-config st
+Destination filename [startup-config]?  |	S2#copy running-config startup-config
+Building configuration... |	Destination filename [startup-config]?
+[OK] |	Building configuration...
+S1# |	[OK]
+
 
 
 
