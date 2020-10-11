@@ -121,3 +121,48 @@ R1#
 
 
 ## Step 3: Configure basic settings for each switch.
+
+
+a.	Console into the switch and enable privileged EXEC mode.  
+**Switch>enable**  
+
+b.	Enter configuration mode.  
+**Switch#configure terminal **  
+
+c.	Assign a device name to the switch.  
+**Switch(config)#hostname S1**
+**Switch(config)#hostname S2**
+
+d.	Disable DNS lookup to prevent the router from attempting to translate incorrectly entered commands as though they were host names.  
+**S1(config)#no ip domain-lookup**  
+
+e.	Assign class as the privileged EXEC encrypted password.  
+**S1(config)#enable  secret class**  
+
+f.	Assign cisco as the console password and enable login.  
+**S1(config)#line console 0  
+S1(config-line)#password cisco  
+S1(config-line)#login  
+S1(config-line)#exit**  
+
+g.	Assign cisco as the vty password and enable login.  
+**S1(config)#line vty 0 15  
+S1(config-line)#password cisco  
+S1(config-line)#login  
+S1(config-line)#exit**  
+
+h.	Encrypt the plaintext passwords.  
+**S1(config)#service password-encryption**  
+
+i.	Create a banner that warns anyone accessing the device that unauthorized access is prohibited.  
+**S1(config)#banner motd $ Authorized Users Only! $**  
+
+j.	Set the clock on the switch.
+Note: Use the question mark (?) to help with the correct sequence of parameters needed to execute this command.  
+**S1#clock set 13:11:00 11 October 2020**  
+
+k.	Copy the running configuration to the startup configuration.  
+**S1#copy running-config startup-config**  
+**S2#copy running-config startup-config**
+
+
